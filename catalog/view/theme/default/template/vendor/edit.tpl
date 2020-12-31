@@ -1,0 +1,772 @@
+<?php echo $header; ?><?php echo $column_left; ?>
+<div id="content" class="vendor-dash">
+  <div class="page-header vendor-edit">
+    <div class="container-fluid">
+      <div class="pull-left">
+      <h1><?php echo $heading_title; ?></h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <?php if ($error_warning) { ?>
+    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    <?php } ?>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo $text_form; ?></h3>
+      </div>
+      <div class="panel-body">
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab-seller" data-toggle="tab"><?php echo $tab_seller; ?></a></li>
+				<li <?php if($error_showorderwarning) { ?> class="warningorder"  <?php } ?>><a href="#tab-generalstore" data-toggle="tab"><?php echo $tab_generalstore; ?></a></li>
+				<li><a href="#tab-datastore" data-toggle="tab"><?php echo $tab_datastore; ?></a></li>
+				<li <?php if($error_showorderwarning) { ?> class="warningorder"  <?php } ?>><a href="#tab-payment" data-toggle="tab"><?php echo $tab_payment; ?></a></li>
+				<!--04 03 2019 -->
+				<li><a href="#tab-chat" data-toggle="tab"><?php echo $tab_chat; ?></a></li>
+				<!--04 03 2019 -->
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active col-sm-12 col-xs-12" id="tab-seller">
+					<div class="row"> 
+						<div class="form-group required col-sm-4">
+							<div> 
+							<label class="control-label" for="input-display_name"><?php echo $entry_display_name; ?></label>
+							
+								<input type="text" name="display_name" value="<?php echo $display_name; ?>" placeholder="<?php echo $entry_display_name; ?>" id="input-display_name" class="form-control" />
+								<?php if ($error_display_name) { ?>
+									<div class="text-danger"><?php echo $error_display_name; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group required col-sm-4">
+							<div> 
+							<label class="control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
+								<input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+								<?php if ($error_firstname) { ?>
+									<div class="text-danger"><?php echo $error_firstname; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group required col-sm-4">
+							<div>
+							<label class="control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
+							
+								<input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+								<?php if ($error_lastname) { ?>
+									<div class="text-danger"><?php echo $error_lastname; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+					<div class="row"> 
+						<div class="form-group required  col-sm-4">
+							<div>
+							<label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
+							
+								<input type="email" name="email" disabled value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
+								<?php if ($error_email) { ?>
+									<div class="text-danger"><?php echo $error_email; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group required col-sm-4">
+							<div>
+							<label class="control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
+							
+								<input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
+								<?php if ($error_telephone) { ?>
+									<div class="text-danger"><?php echo $error_telephone; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group col-sm-4">
+							<div>
+							<label class="control-label" for="input-fax"><?php echo $entry_fax; ?></label>
+							
+								<input type="text" name="fax" value="<?php echo $fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
+							</div>
+						</div> 
+					</div> 
+					<div class="row"> 					
+						<div class="form-group col-sm-4">
+							<div>
+								<label class="control-label" for="input-company"><?php echo $entry_company; ?></label>
+								<input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
+							</div>
+						</div>
+						
+						<div class="form-group required col-sm-4">
+							<div>
+							<label class="control-label" for="input-address-1"><?php echo $entry_address_1; ?></label>
+							
+								<input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" class="form-control" />
+								<?php if ($error_address_1) { ?>
+									<div class="text-danger"><?php echo $error_address_1; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group col-sm-4">
+							<div>
+								<label class="control-label" for="input-address-2"><?php echo $entry_address_2; ?></label>
+								<input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-address-2" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="row"> 
+						<div class="form-group required col-sm-4">
+							<div>
+								<label class="control-label" for="input-city"><?php echo $entry_city; ?></label>
+							
+								<input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
+								<?php if ($error_city) { ?>
+									<div class="text-danger"><?php echo $error_city; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						<div class="form-group required col-sm-4">
+							<div>
+								<label class="control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
+						
+								<input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
+								<?php if ($error_postcode) { ?>
+									<div class="text-danger"><?php echo $error_postcode; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+						
+						<div class="form-group required col-sm-4">
+							<div>	
+								<label class="control-label" for="input-country"><?php echo $entry_country; ?></label>
+								<select name="country_id" id="input-country" class="form-control">
+									<option value=""><?php echo $text_select; ?></option>
+									<?php foreach ($countries as $country) { ?>
+									<?php if ($country['country_id'] == $country_id) { ?>
+									<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+									<?php } else { ?>
+									<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+									<?php } ?>
+									<?php } ?>
+								</select>
+								<?php if ($error_country) { ?>
+									<div class="text-danger"><?php echo $error_country; ?></div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+					<div class="row"> 
+						<div class="form-group required col-sm-4">
+							<label class="control-label" for="input-zone"><?php echo $entry_zone; ?></label>
+							
+								<select name="zone_id" id="input-zone" class="form-control">
+								</select>
+							<?php if ($error_zone) { ?>
+								<div class="text-danger"><?php echo $error_zone; ?></div>
+							<?php } ?>
+							</div>
+						</div>
+				
+					<div class="row">	
+						<div class="form-group col-sm-8">
+							<div>
+								<label class="control-label" for="input-about"><?php echo $entry_about; ?></label>
+							
+								<textarea rows="5" name="about" placeholder="<?php echo $entry_about; ?>" id="input-about" class="form-control"><?php echo $about;?></textarea>
+							</div>
+						</div>
+
+						<div class="form-group col-sm-4">
+							<div>
+								<label class="control-label" for="input-logo"><?php echo $entry_image;?></label>
+								<div class="imagebox">
+									<span id="thumb-image"><img src="<?php echo $thumb; ?>" alt="" title="" class="thumbnail"/></span>
+								</div>
+								<br/>
+								<button type="button" id="button-upload1" data-loading-text="<?php echo $text_loading; ?>" 
+								class="btn btn-default"><i class="fa fa-upload"></i> <?php echo $button_upload; ?></button>
+								<input type="hidden" name="image" value="<?php echo $image;?>" id="input-image" />
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="tab-pane col-sm-12" id="tab-generalstore">
+					<ul class="nav nav-tabs" id="language">
+						<?php foreach ($languages as $language) { ?>
+						<li><a href="#language<?php echo $language['language_id']; ?>" data-toggle="tab"><img src="catalog/language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a></li>
+						<?php } ?>
+					</ul>
+					<div class="tab-content">
+						<?php foreach ($languages as $language) { ?>
+                		<div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
+						<div class="row">
+                			<div class="form-group col-sm-6">
+								<div>
+									<label class="control-label" for="input-name[<?php echo $language['language_id']; ?>]"><?php echo $entry_storename; ?></label>
+									<input type="text" name="store_description[<?php echo $language['language_id']; ?>][name]" value="<?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['name'] : ''; ?>" placeholder="<?php echo $entry_storename; ?>" id="input-name[<?php echo $language['language_id']; ?>]" class="form-control" />
+									<?php if(isset($error_name[$language['language_id']])) { ?>
+									<div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
+									<?php } ?>
+								</div>
+							</div>
+							<div class="form-group col-sm-6">
+								<div>
+									<label class="control-label" for="input-meta_description[<?php echo $language['language_id']; ?>]"><?php echo $entry_metadescription; ?></label>
+									<textarea name="store_description[<?php echo $language['language_id']; ?>][meta_description]" rows="3" value="" rows="5" placeholder="<?php echo $entry_metadescription; ?>" id="input-meta_description[<?php echo $language['language_id']; ?>]" class="form-control " ><?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['meta_description'] : ''; ?></textarea>
+								</div>
+							</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<div>
+									<label class="control-label" for="input-description[<?php echo $language['language_id']; ?>]"><?php echo $entry_description; ?></label>
+								
+										<textarea name="store_description[<?php echo $language['language_id']; ?>][description]" value="" placeholder="" id="input-description[<?php echo $language['language_id']; ?>]" class="form-control summernote" ><?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['description'] : ''; ?></textarea>
+									</div>
+									
+									
+								</div>
+								<div class="form-group col-sm-6">
+									<div>
+									<label class="control-label" for="input-shipping_policy[<?php echo $language['language_id']; ?>]"><?php echo $entry_shippingpolicy; ?></label>
+									
+										<textarea name="store_description[<?php echo $language['language_id']; ?>][shipping_policy]" value="" placeholder="<?php echo $entry_shippingpolicy; ?>" id="input-shipping_policy[<?php echo $language['language_id']; ?>]" class="form-control summernote" ><?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['shipping_policy'] : ''; ?></textarea>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="form-group col-sm-6">
+									<div>
+										<label class="control-label" for="input-return_policy[<?php echo $language['language_id']; ?>]"><?php echo $entry_returnpolicy; ?></label>
+									
+										<textarea name="store_description[<?php echo $language['language_id']; ?>][return_policy]" value="" placeholder="<?php echo $entry_returnpolicy; ?>" id="input-return_policy[<?php echo $language['language_id']; ?>]" class="form-control summernote" ><?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['return_policy'] : ''; ?></textarea>
+									</div>
+								</div>
+								<div class="form-group col-sm-6">
+									<div>
+									<label class="control-label" for="input-meta_keyword[<?php echo $language['language_id']; ?>]"><?php echo $entry_metakeyword; ?></label>
+									
+										<textarea name="store_description[<?php echo $language['language_id']; ?>][meta_keyword]" value="" rows="5" placeholder="<?php echo $entry_metakeyword; ?>" id="input-meta_keyword[<?php echo $language['language_id']; ?>]" class="form-control summernote" ><?php echo isset($store_description[$language['language_id']]) ? $store_description[$language['language_id']]['meta_keyword'] : ''; ?></textarea>
+									</div>
+								</div>
+							</div>			
+                		</div>
+                		<?php } ?>	
+					</div>	
+				</div>
+				
+				
+				<div class="tab-pane col-sm-12" id="tab-datastore">
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>
+								<label class="control-label" for="input-charges"><?php echo $entry_charges; ?></label>
+							
+								<input type="text" name="shipping_charge" value="<?php echo $shipping_charge; ?>" placeholder="<?php echo $entry_charges; ?>" id="input-charges" class="form-control" />
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<div>
+								<label class="control-label" for="input-tax"><?php echo $entry_tax; ?></label>
+								<input type="text" name="tax_number" value="<?php echo $tax_number; ?>" placeholder="<?php echo $entry_tax; ?>" id="input-tax" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>
+								<label class="control-label" for="input-store_about"><?php echo $entry_store_about; ?></label>
+							
+								<textarea name="store_about" value="" rows="5" placeholder="<?php echo $entry_store_about; ?>" id="input-store_about" class="form-control" ><?php echo $store_about; ?></textarea>
+								
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<div>
+								<label class="control-label" for="input-map_url"><?php echo $entry_mapurl; ?> <a href="https://maps.google.com" target="_blank" data-toggle="tooltip" title="find your map location here"><i class="fa fa-globe" aria-hidden="true"></i></a></label>
+								
+								<textarea name="map_url" rows="5" placeholder="<?php echo $entry_mapurl; ?>" id="input-about" class="form-control" rows="8"><?php echo $map_url; ?></textarea>							
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>
+							<label class="control-label" for="input-url"><?php echo $entry_url; ?></label>
+							<input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_url; ?>" id="input-url" class="form-control" />
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<div>
+							<label class="control-label" for="input-facebook_url"><?php echo $entry_facebookurl; ?></label>
+							
+								<input type="text" name="facebook_url" value="<?php echo $facebook_url; ?>" placeholder="<?php echo $entry_facebookurl; ?>" id="input-facebook_url" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group col-sm-6">
+							<div>
+							<label class="control-label" for="input-google_url"><?php echo $entry_googleurl; ?></label>
+							
+								<input type="text" name="google_url" value="<?php echo $google_url; ?>" placeholder="<?php echo $entry_googleurl; ?>" id="input-google_url" class="form-control" />
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-sm-6 padd0">
+							<div class="col-sm-4">
+								<label class="control-label" for="input-logo"><?php echo $entry_logo;?></label>
+								<div class="imagebox">
+								<span id="thumb-logo"><img src="<?php echo $thumb_logo; ?>" alt="" title="" class="thumbnail" /></span>
+								</div>
+							<button type="button" id="button-logo" data-loading-text="<?php echo $text_loading; ?>" 
+							class="btn btn-default"><i class="fa fa-upload"></i> <?php echo $button_upload; ?></button>
+							<input type="hidden" name="logo" value="<?php echo $logo;?>" id="input-logo" />
+						</div>
+						<div class="col-sm-8">
+							<label class="control-label text-center" for="input-logo"> <?php echo $entry_logowidth; ?> <i class="fa fa-arrows-h" aria-hidden="true"></i> </label>
+							<input type="text" name="store_logowidth" value="<?php echo $store_logowidth; ?>" placeholder="<?php echo $entry_logowidth; ?>" id="input-store_logowidth" class="form-control" />
+						
+							<label class="control-label" for="input-logo"> <?php echo $entry_logoheight; ?> <i class="fa fa-arrows-v" aria-hidden="true"></i> </label>
+							<input type="text" name="store_logoheight" value="<?php echo $store_logoheight; ?>" placeholder="<?php echo $entry_logoheight; ?>" id="input-store_logoheight" class="form-control" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-6 padd0">
+						<div class="col-sm-4">
+							<label class="control-label" for="input-logo"><?php echo $entry_banner;?></label>
+						
+							<div class="imagebox">
+							<span id="thumb-banner"><img src="<?php echo $thumb_banner; ?>" alt="" title="" class="thumbnail" /></span>
+							</div>
+							<button type="button" id="upload-banner" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-default"> <i class="fa fa-upload"></i> <?php echo $button_banner; ?></button>
+							<input type="hidden" name="banner" value="<?php echo $banner;?>" id="input-banner" />
+						</div>
+						<div class="col-sm-8">
+							<label class="control-label text-center" for="input-logo"> <?php echo $entry_bannerwidth; ?> <i class="fa fa-arrows-h" aria-hidden="true"></i> </label>
+							<input type="text" name="store_bannerwidth" value="<?php echo $store_bannerwidth; ?>" placeholder="<?php echo $entry_bannerwidth; ?>" id="input-store_bannerwidth" class="form-control" />
+							
+							<label class="control-label text-center" for="input-logo">  <?php echo $entry_bannerheight; ?> <i class="fa fa-arrows-h" aria-hidden="true"></i> </label>
+							
+							<input type="text" name="store_bannerheight" value="<?php echo $store_bannerheight; ?>" placeholder="<?php echo $entry_bannerheight; ?>" id="input-store_bannerheight" class="form-control" />
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="tab-pane col-sm-12" id="tab-payment">
+					<div class="row">
+						<div class="form-group col-sm-4">
+							<label class="control-label"><?php echo $entry_method; ?></label>
+								<div class="col-sm-12">
+									<div class="radio col-sm-6 padd0">
+										<label>
+										  <?php if ($payment_method == 'paypal') { ?>
+										  <input type="radio" name="payment_method" value="paypal" checked="checked" />
+										  <?php } else { ?>
+										  <input type="radio" name="payment_method" value="paypal" />
+										  <?php } ?>
+										  <?php echo $text_paypal; ?></label>
+								   </div>
+								   <div class="radio col-sm-6 padd0">
+										<label>
+										  <?php if ($payment_method == 'banktransfer') { ?>
+										  <input type="radio" name="payment_method" value="banktransfer" checked="checked" />
+										  <?php } else { ?>
+										  <input type="radio" name="payment_method" value="banktransfer" />
+										  <?php } ?>
+										  <?php echo $text_bank; ?></label>
+								   </div>
+								</div>
+							</div>
+						</div>
+
+					<div class="row">
+						<div class="payment col-sm-6" id="payment-paypal">	
+							<div class="form-group" id="paypal">	
+								<div>
+									<label class="control-label" for="input-paypal"><?php echo $entry_Emailid; ?></label>
+									<input type="text" name="paypal" value="<?php echo $paypal?>" placeholder="<?php echo $entry_Emailid; ?>" id="input-paypal" class="form-control"/>
+									<?php if ($error_paypal) { ?>
+									<div class="text-danger"><?php echo $error_paypal; ?></div>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="payment" id="payment-banktransfer">
+						<div class="row">
+							<div class="form-group required col-sm-4">
+								<div>
+									<label class="control-label" for="input-bankname"><?php echo $entry_bankname;?></label>
+									<input type="text" name="bank_name" value="<?php echo $bank_name; ?>" placeholder="<?php echo $entry_bankname;?>" id="input-bankname" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group required col-sm-4">
+								<div>
+								<label class="control-label" for="input-branch_number"><?php echo $entry_bnumber;?></label>
+							
+								<input type="text" name="bank_branch_number" value="<?php echo $bank_branch_number; ?>" placeholder="<?php echo $entry_bnumber;?>" id="input-branch_number" class=	"form-control" />
+								</div>
+							</div>
+							
+							<div class="form-group required col-sm-4">
+								<div>
+									<label class="control-label" for="input-swift_code"><?php echo $entry_swiftcode;?></label>
+								
+									<input type="text" name="bank_swift_code" value="<?php echo $bank_swift_code; ?>" placeholder="<?php echo $entry_swiftcode;?>" id="input-swift_code" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-sm-4">
+								<div>
+									<label class="control-label" for="input-package-title"><?php echo $entry_aname;?></label>
+								
+									<input type="text" name="bank_account_name" value="<?php echo $bank_account_name; ?>" placeholder="<?php echo $entry_aname;?>" id="input-package-titl" class="form-control" />
+									<?php if ($error_bank_account_name) { ?>
+									<div class="text-danger"><?php echo $error_bank_account_name; ?></div>
+									<?php } ?>
+								</div>
+							</div>
+							
+							<div class="form-group col-sm-4">
+								<div>
+								<label class="control-label" for="input-account_number"><?php echo $entry_anumber;?></label>
+								
+									<input type="text" name="bank_account_number" value="<?php echo $bank_account_number; ?>" placeholder="<?php echo $entry_anumber;?>" id="input-account_number" class="form-control" />
+									 <?php if ($error_bank_account_number) { ?>
+									<div class="text-danger"><?php echo $error_bank_account_number; ?></div>
+									<?php } ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="tab-pane col-sm-12" id="tab-chat">
+					<div class="msgsend row">
+						<div class="form-group col-sm-6">
+							<div>	
+								<label class="control-label" for="input-package-title"><?php echo $entry_status;?></label>
+								<select name="chatstatus" id="statuss" class="form-control">
+									<?php if ($chatstatus) { ?>
+				                    <option value="1" selected="selected"><?php echo $text_yes; ?></option>
+				                    <option value="0"><?php echo $text_no; ?></option>
+				                    <?php } else { ?>
+				                    <option value="1"><?php echo $text_yes; ?></option>
+				                    <option value="0" selected="selected"><?php echo $text_no; ?></option>
+				                    <?php } ?>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<div>
+								<label class="control-label" for="input-package-title"><br/></label>
+							<div class="chatsystem">
+								<input type="text" name="message" value="<?php echo $message; ?>" placeholder="Enter the text" id="responsetext" class="form-control" />
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				</br>
+				<div class="buttons col-sm-12"  style="margin-top:20px;">
+					<div class="pull-right">
+						<input type="submit" value="<?php echo $button_submit; ?>" class="btn btn-primary" />
+					</div>
+				</div>	
+			</div>
+		</form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+	
+<script type="text/javascript" src="catalog/view/javascript/vendor/summernote/summernote.js"></script>
+  <link href="catalog/view/javascript/vendor/summernote/summernote.css" rel="stylesheet" />
+  <script type="text/javascript" src="catalog/view/javascript/vendor/summernote/opencart.js"></script> 
+<!--06 03 2019-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$flag = $('#statuss').val();
+		if($flag==1){
+			$(".chatsystem").show();
+		}else{
+			$(".chatsystem").hide();
+		}
+		$("select[name='chatstatus']").on('change', function() {
+	    $flagg = $(this).val();
+	    if($flagg==1){
+			$(".chatsystem").show();
+		}else{
+			$(".chatsystem").hide();
+		}
+	    $(".chatsystem").toggle(flag);
+  })
+
+	})
+</script><!--06 03 2019-->
+
+<script type="text/javascript"><!--
+$('input[name=\'payment_method\']').on('change', function() {
+	$('.payment').hide();
+
+	$('#payment-' + this.value).show();
+});
+
+$('input[name=\'payment_method\']:checked').trigger('change');
+//--></script> 
+  
+<script type="text/javascript"><!--
+$('#language a:first').tab('show');
+//--></script>
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	pickTime: false
+});
+
+$('.time').datetimepicker({
+	pickDate: false
+});
+
+$('.datetime').datetimepicker({
+	pickDate: true,
+	pickTime: true
+});
+//--></script>
+<script type="text/javascript"><!--
+$('select[name=\'country_id\']').on('change', function() {
+	$.ajax({
+		url: 'index.php?route=account/account/country&country_id=' + this.value,
+		dataType: 'json',
+		beforeSend: function() {
+			$('select[name=\'country_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+		},
+		complete: function() {
+			$('.fa-spin').remove();
+		},
+		success: function(json) {
+			if (json['postcode_required'] == '1') {
+				$('input[name=\'postcode\']').parent().parent().addClass('required');
+			} else {
+				$('input[name=\'postcode\']').parent().parent().removeClass('required');
+			}
+
+			html = '<option value=""><?php echo $text_select; ?></option>';
+
+			if (json['zone'] && json['zone'] != '') {
+				for (i = 0; i < json['zone'].length; i++) {
+					html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+					if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
+						html += ' selected="selected"';
+					}
+
+					html += '>' + json['zone'][i]['name'] + '</option>';
+				}
+			} else {
+				html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+			}
+
+			$('select[name=\'zone_id\']').html(html);
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+$('select[name=\'country_id\']').trigger('change');
+//--></script>
+
+<script type="text/javascript"><!--
+$('button[id^=\'button-upload1\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+         	$.ajax({
+				url: 'index.php?route=vendor/edit/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						var imageurl="<?php echo str_replace('http:','',HTTP_SERVER)?>";
+						$("#thumb-image").html('<img src="'+imageurl+"image/"+json['location1']+'" alt="" title="" width="130" class="thumbnail"/>');
+						$("#input-image").val(json['location1']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+
+		
+		}
+	}, 500);
+});
+//--></script>
+
+<script type="text/javascript"><!--
+$('button[id^=\'button-logo\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+         	$.ajax({
+				url: 'index.php?route=vendor/vendor/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						var imageurl="<?php echo str_replace('http:','',HTTP_SERVER)?>";
+						$("#thumb-logo").html('<img src="'+imageurl+"image/"+json['location1']+'" alt="" title="" width="100"/>');
+						$("#input-logo").val(json['location1']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+
+		
+		}
+	}, 500);
+});
+//--></script>
+
+<script type="text/javascript"><!--
+$('button[id^=\'upload-banner\']').on('click', function() {
+	var node = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+         	$.ajax({
+				url: 'index.php?route=vendor/vendor/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(node).button('loading');
+				},
+				
+				complete: function() {
+					$(node).button('reset');
+				},
+				success: function(json) {
+					$('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						var imageurl="<?php echo str_replace('http:','',HTTP_SERVER)?>";
+						$("#thumb-banner").html('<img src="'+imageurl+"image/"+json['location1']+'" alt="" title="" width="130" class="thumbnail" />');
+						$("#input-banner").val(json['location1']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+
+		
+		}
+	}, 500);
+});
+//--></script>	
+<style>
+<?php if($error_showorderwarning) { ?> 
+.warningorder {}
+.warningorder a{color: #FD003D!important;border: solid 1px #FD003D!important;
+    border-bottom: none!important;}
+ <?php } ?>
+</style>
+	
+<?php echo $footer; ?>
